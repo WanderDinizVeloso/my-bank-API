@@ -10,7 +10,11 @@ const notFound = (param) => ({
   message: `'${param}' not found.`,
 });
 
+const internalError = () =>
+  'sorry, internal error.';
+
 module.exports = {
   invalid,
   notFound,
+  internalError,
 };
