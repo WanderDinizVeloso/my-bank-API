@@ -1,9 +1,9 @@
 const stringInNumber = require('./stringInNumber');
 const setToTwoDecimalPlaces = require('./setToTwoDecimalPlaces');
-const protectCpf = require('./protectCpf');
+const protectTransferData = require('./protectTransferData');
 
 module.exports = {
   stringInNumber,
   setToTwoDecimalPlaces,
-  protectCpf,
+  protectTransferData,
 };
