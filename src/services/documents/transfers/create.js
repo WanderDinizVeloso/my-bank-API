@@ -1,8 +1,7 @@
 const { TRANSFERS, ACCOUNTS } = require('../../strings');
 const { create, searchById } = require('../../../models')(TRANSFERS);
 const { searchByField } = require('../../../models')(ACCOUNTS);
-
-const DECIMAL_PLACES = 2;
+const { setToTwoDecimalPlaces } = require('../../functions');
 
 module.exports = async ({ originData, destinationCpf, value }) => {
   const account = await searchByField({ cpf: destinationCpf });
@@ -13,7 +12,7 @@ module.exports = async ({ originData, destinationCpf, value }) => {
 
   const { _id, fullName, cpf } = account;
   const date = new Date();
-  const valueWithDecimalPlaces = (value).toFixed(DECIMAL_PLACES);
+  const valueWithDecimalPlaces = setToTwoDecimalPlaces(value);
 
   const newTransfer = {
     origin: originData,
