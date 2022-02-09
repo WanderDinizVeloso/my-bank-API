@@ -1,5 +1,6 @@
-const { DEPOSITS } = require('../../strings');
-const { create, searchById, searchByField } = require('../../../models')(DEPOSITS);
+const { DEPOSITS, ACCOUNTS } = require('../../strings');
+const { create, searchById } = require('../../../models')(DEPOSITS);
+const { searchByField } = require('../../../models')(ACCOUNTS);
 
 const DECIMAL_PLACES = 2;
 
