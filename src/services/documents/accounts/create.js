@@ -5,6 +5,7 @@ const { create, searchById, searchByField } = require('../../../models')(ACCOUNT
 
 const SALT_ROUNDS = 10;
 const INITIAL_VALUE = 0.00;
+const DECIMAL_PLACES = 2;
 
 module.exports = async ({ fullName, cpf, password }) => {
   const cpfExist = await searchByField({ cpf });
@@ -15,7 +16,7 @@ module.exports = async ({ fullName, cpf, password }) => {
 
   const hashedPassword = await hash(password, SALT_ROUNDS);
 
-  const value = INITIAL_VALUE;
+  const value = (INITIAL_VALUE).toFixed(DECIMAL_PLACES);
 
   const accountWithHashedPasswordAndValue = {
     fullName, cpf, value, password: hashedPassword,
