@@ -1,4 +1,4 @@
-const { BAD_REQUEST, NOT_FOUND } = require('http-status-codes').StatusCodes;
+const { BAD_REQUEST, NOT_FOUND, CONFLICT } = require('http-status-codes').StatusCodes;
 
 const invalid = (param) => ({
   status: BAD_REQUEST,
@@ -13,8 +13,18 @@ const notFound = (param) => ({
 const internalError = () =>
   'sorry, internal error.';
 
+const createdSuccessfully = (param) =>
+`'${param}' created successfully.`;
+
+const registered = (param) => ({
+  status: CONFLICT,
+  message: `'${param}' is already.`,
+});
+
 module.exports = {
   invalid,
   notFound,
   internalError,
+  createdSuccessfully,
+  registered,
 };
