@@ -4,7 +4,7 @@ const { BCRYPT_SALT_ROUNDS } = process.env;
 
 const { ACCOUNTS } = require('../../strings');
 const { create, searchById, searchByField } = require('../../../models')(ACCOUNTS);
-const { stringInNumber, setToTwoDecimalPlaces, protectCpf } = require('../../functions');
+const { stringInNumber, setToTwoDecimalPlaces, protectAccountData } = require('../../functions');
 
 const INITIAL_VALUE = 0.00;
 
@@ -21,20 +21,11 @@ module.exports = async ({ fullName, cpf, password }) => {
 
   const value = setToTwoDecimalPlaces(INITIAL_VALUE);
 
-  const accountWithHashedPasswordAndValue = {
+  const { insertedId } = await create({
     fullName, cpf, value, password: hashedPassword,
-  };
-
-  const { insertedId } = await create(accountWithHashedPasswordAndValue);
+  });
 
   const { password: pass, ...newAccountWithoutPassword } = await searchById(insertedId);
 
-  const protectedCpf = protectCpf(cpf);
-
-  const accountData = {
-    ...newAccountWithoutPassword,
-    cpf: protectedCpf,
-  };
-
-  return accountData;
+  return protectAccountData(cpf, newAccountWithoutPassword);
 };
