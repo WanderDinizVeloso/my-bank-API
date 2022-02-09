@@ -6,9 +6,9 @@ const { create, searchById, searchByField } = require('../../../models')(ACCOUNT
 const SALT_ROUNDS = 10;
 
 module.exports = async ({ fullName, cpf, password }) => {
-  const verifiedAccount = await searchByField({ cpf });
+  const cpfExist = await searchByField({ cpf });
 
-  if (verifiedAccount) {
+  if (cpfExist) {
     return null;
   }
 
