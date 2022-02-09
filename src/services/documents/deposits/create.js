@@ -1,7 +1,7 @@
 const { DEPOSITS, ACCOUNTS } = require('../../strings');
 const { create, searchById } = require('../../../models')(DEPOSITS);
 const { searchByField } = require('../../../models')(ACCOUNTS);
-const { setToTwoDecimalPlaces } = require('../../functions');
+const { setToTwoDecimalPlaces, protectCpf } = require('../../functions');
 
 module.exports = async ({ destinationCpf, value }) => {
   const account = await searchByField({ cpf: destinationCpf });
@@ -15,14 +15,17 @@ module.exports = async ({ destinationCpf, value }) => {
   const valueWithDecimalPlaces = setToTwoDecimalPlaces(value);
 
   const newDeposit = {
-    destination: { _id, fullName, cpf },
-    value: valueWithDecimalPlaces,
-    date,
+    destination: { _id, fullName, cpf }, value: valueWithDecimalPlaces, date,
+  };
+  
+  const { insertedId } = await create(newDeposit);  
+  const createdDeposit = await searchById(insertedId);
+  
+  const protectedCpf = protectCpf(cpf);
+
+  const depositData = {
+    ...createdDeposit, destination: { ...createdDeposit.destination, cpf: protectedCpf },
   };
 
-  const { insertedId } = await create(newDeposit);
-
-  const createdDeposit = await searchById(insertedId);
-
-  return createdDeposit;
+  return depositData;
 };
