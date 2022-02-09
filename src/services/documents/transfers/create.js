@@ -11,20 +11,15 @@ module.exports = async ({ originData, destinationCpf, value }) => {
   }
 
   const { _id, fullName, cpf } = account;
-  const date = new Date();
-  const valueWithDecimalPlaces = setToTwoDecimalPlaces(value);
 
-  const newTransfer = {
+  const { insertedId } = await create({
     origin: originData,
     destination: { _id, fullName, cpf },
-    value: valueWithDecimalPlaces,
-    date,
-  };
+    value: setToTwoDecimalPlaces(value),
+    date: new Date(),
+  });
 
-  const { insertedId } = await create(newTransfer);
   const createdTransfer = await searchById(insertedId);
 
-  const protectedData = protectTransferData(originData.cpf, destinationCpf, createdTransfer);
-
-  return protectedData;
+  return protectTransferData(originData.cpf, destinationCpf, createdTransfer);
 };
