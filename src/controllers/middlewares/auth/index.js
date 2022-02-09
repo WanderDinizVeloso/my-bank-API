@@ -9,13 +9,13 @@ module.exports = (req, _res, next) => {
     return next(notFound(TOKEN));
   }
 
-  const user = verifyToken(authorization);
+  const account = verifyToken(authorization);
 
-  if (!user) {
+  if (!account) {
     return next(invalid(TOKEN));
   }
 
-  req.user = user;
+  req.account = account;
 
   return next();
 };
