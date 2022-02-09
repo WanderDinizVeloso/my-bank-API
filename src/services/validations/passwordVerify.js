@@ -1,3 +1,5 @@
+const LENGTH = 10;
+
 module.exports = (password) => {
   const upperCaseRegex = /[A-Z]+/.test(password);
   const numberRegex = /[0-9]+/.test(password);
@@ -7,7 +9,7 @@ module.exports = (password) => {
 
   const characterNotValid = characterArray.some((character) => !character);
 
-  if (characterNotValid) {
+  if (characterNotValid || password.length < LENGTH) {
     return null;
   }
 
