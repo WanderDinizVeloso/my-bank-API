@@ -5,6 +5,7 @@ const CPF = 'cpf';
 const CPF_OR_PASSWORD = 'cpf or password';
 const DEPOSIT = 'deposit';
 const DEPOSITS = 'deposits';
+const TRANSFER = 'transfer';
 const TRANSFERS = 'transfers';
 
 module.exports = {
@@ -15,5 +16,6 @@ module.exports = {
   CPF_OR_PASSWORD,
   DEPOSIT,
   DEPOSITS,
+  TRANSFER,
   TRANSFERS,
 };
