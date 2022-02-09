@@ -7,6 +7,8 @@ const DEPOSIT = 'deposit';
 const DEPOSITS = 'deposits';
 const TRANSFER = 'transfer';
 const TRANSFERS = 'transfers';
+const FULL_NAME = 'fullName';
+const STRING = 'string';
 
 module.exports = {
   TOKEN,
@@ -18,4 +20,6 @@ module.exports = {
   DEPOSITS,
   TRANSFER,
   TRANSFERS,
+  FULL_NAME,
+  STRING,
 };
