@@ -1,20 +1,7 @@
 const { TRANSFERS, ACCOUNTS } = require('../../strings');
 const { create, searchById } = require('../../../models')(TRANSFERS);
 const { searchByField } = require('../../../models')(ACCOUNTS);
-const { setToTwoDecimalPlaces, protectCpf } = require('../../functions');
-
-const protectData = (originCpf, destinationCpf, data) => {
-  const originCpfProtected = protectCpf(originCpf);
-  const destinationCpfProtected = protectCpf(destinationCpf);
-
-  const transferData = {
-    ...data,
-    origin: { ...data.origin, cpf: originCpfProtected },
-    destination: { ...data.destination, cpf: destinationCpfProtected },
-  };
-
-  return transferData;
-};
+const { setToTwoDecimalPlaces, protectTransferData } = require('../../functions');
 
 module.exports = async ({ originData, destinationCpf, value }) => {
   const account = await searchByField({ cpf: destinationCpf });
@@ -37,7 +24,7 @@ module.exports = async ({ originData, destinationCpf, value }) => {
   const { insertedId } = await create(newTransfer);
   const createdTransfer = await searchById(insertedId);
 
-  const protectedSensitiveData = protectData(originData.cpf, destinationCpf, createdTransfer);
+  const protectedData = protectTransferData(originData.cpf, destinationCpf, createdTransfer);
 
-  return protectedSensitiveData;
+  return protectedData;
 };
