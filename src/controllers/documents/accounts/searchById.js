@@ -5,7 +5,7 @@ const { notFound } = require('../../statusAndMessage');
 const { ACCOUNT } = require('../../../services/strings');
 
 module.exports = async (req, res, next) => {
-  const { id } = req.account;
+  const { _id: id } = req.account;
 
   const account = await searchById(id);
 
