@@ -24,5 +24,5 @@ module.exports = async ({ destinationCpf, value }) => {
 
   await updateAccountValue(account, value, ADDITION);
   
-  return protectDepositData(destinationCpf, createdDeposit);
+  return protectDepositData(createdDeposit);
 };

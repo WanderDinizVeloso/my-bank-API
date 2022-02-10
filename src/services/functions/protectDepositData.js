@@ -1,7 +1,7 @@
 const protectCpf = require('./protectCpf');
 
-module.exports = (destinationCpf, data) => {
-  const destinationCpfProtected = protectCpf(destinationCpf);
+module.exports = (data) => {
+  const destinationCpfProtected = protectCpf(data.cpf);
 
   const depositData = {
     ...data,
