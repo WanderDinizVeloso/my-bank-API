@@ -1,6 +1,11 @@
 const protectCpf = require('./protectCpf');
 
-module.exports = (originCpf, destinationCpf, data) => {
+module.exports = (data) => {
+  const {
+    origin: { cpf: originCpf },
+    destination: { cpf: destinationCpf },
+  } = data;
+
   const originCpfProtected = protectCpf(originCpf);
   const destinationCpfProtected = protectCpf(destinationCpf);
 

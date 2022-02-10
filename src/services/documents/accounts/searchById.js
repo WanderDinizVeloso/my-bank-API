@@ -11,5 +11,5 @@ module.exports = async (id) => {
 
   const { password, ...accountWithoutPassword } = account;
 
-  return protectAccountData(account.cpf, accountWithoutPassword);
+  return protectAccountData(accountWithoutPassword);
 };
