@@ -1,6 +1,8 @@
 const { ACCOUNTS, ADDITION, SUBTRACTION } = require('../strings');
 const { update } = require('../../models')(ACCOUNTS);
-const { setToTwoDecimalPlaces, stringInNumber } = require('./index');
+
+const setToTwoDecimalPlaces = require('./setToTwoDecimalPlaces');
+const stringInNumber = require('./stringInNumber');
 
 module.exports = async (accountData, value, operator) => {
   let newValue = 0;
