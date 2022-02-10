@@ -1,7 +1,7 @@
-const LENGTH = 10;
+const { PASSWORD_LENGTH } = require('../magicNumbers');
 
 module.exports = (password) => {
-  if (!password || password.length < LENGTH) {
+  if (!password || password.length < PASSWORD_LENGTH) {
     return null;
   }
 

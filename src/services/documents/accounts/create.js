@@ -5,8 +5,7 @@ const { BCRYPT_SALT_ROUNDS } = process.env;
 const { ACCOUNTS } = require('../../strings');
 const { create, searchById, searchByField } = require('../../../models')(ACCOUNTS);
 const { stringInNumber, setToTwoDecimalPlaces, protectAccountData } = require('../../functions');
-
-const INITIAL_VALUE = 0.00;
+const { ACCOUNT_INITIAL_VALUE } = require('../../magicNumbers');
 
 module.exports = async ({ fullName, cpf, password }) => {
   const cpfExist = await searchByField({ cpf });
@@ -19,7 +18,7 @@ module.exports = async ({ fullName, cpf, password }) => {
 
   const hashedPassword = await hash(password, saltRounds);
 
-  const value = setToTwoDecimalPlaces(INITIAL_VALUE);
+  const value = setToTwoDecimalPlaces(ACCOUNT_INITIAL_VALUE);
 
   const { insertedId } = await create({
     fullName, cpf, value, password: hashedPassword,

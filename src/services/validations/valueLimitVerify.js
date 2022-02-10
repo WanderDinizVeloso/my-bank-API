@@ -1,7 +1,7 @@
-const MAXIMUM_VALUE = 2000;
+const { TRANSACTIONS_MAXIMUM_VALUE } = require('../magicNumbers');
 
 module.exports = (value) => {
-  if (value > MAXIMUM_VALUE) {
+  if (value > TRANSACTIONS_MAXIMUM_VALUE) {
     return null;
   }
 

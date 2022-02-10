@@ -1,8 +1,7 @@
-const INITIAL_POSITION = 3;
-const END_POSITION = 12;
+const { CPF_INITIAL_POSITION, CPF_END_POSITION } = require('../magicNumbers');
 
 module.exports = (cpf) => {
-  const cpfFragment = cpf.substring(INITIAL_POSITION, END_POSITION);
+  const cpfFragment = cpf.substring(CPF_INITIAL_POSITION, CPF_END_POSITION);
 
   const protectedCpf = `***${cpfFragment}**`;
 

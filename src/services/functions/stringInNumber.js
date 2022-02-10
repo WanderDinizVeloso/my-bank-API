@@ -1,3 +1,3 @@
-const RADIX = 10;
+const { PARSE_INT_RADIX } = require('../magicNumbers');
 
-module.exports = (string) => parseInt(string, RADIX);
+module.exports = (string) => parseInt(string, PARSE_INT_RADIX);

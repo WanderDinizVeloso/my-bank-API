@@ -1,8 +1,7 @@
 const { fullNameVerify } = require('../../../services/validations');
 const { invalidAttribute } = require('../../statusAndMessage');
 const { FULL_NAME, STRING } = require('../../../services/strings');
-
-const LENGTH = 6;
+const { FULL_NAME_LENGTH } = require('../../../services/magicNumbers');
 
 module.exports = async (req, _res, next) => {
   const { fullName } = req.body;
@@ -10,7 +9,7 @@ module.exports = async (req, _res, next) => {
   const verifiedFullName = fullNameVerify(fullName);
 
   if (!verifiedFullName) {
-    return next(invalidAttribute(FULL_NAME, STRING, LENGTH));
+    return next(invalidAttribute(FULL_NAME, STRING, FULL_NAME_LENGTH));
   }
 
   return next();

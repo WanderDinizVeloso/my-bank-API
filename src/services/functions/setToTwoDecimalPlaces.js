@@ -1,3 +1,3 @@
-const DECIMAL_PLACES = 2;
+const { NUMBERS_DECIMAL_PLACES } = require('../magicNumbers');
 
-module.exports = (number) => (number).toFixed(DECIMAL_PLACES);
+module.exports = (number) => (number).toFixed(NUMBERS_DECIMAL_PLACES);
