@@ -1,6 +1,6 @@
 const { protectTransferData } = require('../../../../src/services/functions');
 
-describe('protectAccountData tests', () => {
+describe('protectTransferData tests', () => {
   it(`should return: 
     "{
       origin: { fullName: "FullNameTest", cpf: "***.456.789-**" },
