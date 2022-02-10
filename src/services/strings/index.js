@@ -12,6 +12,7 @@ const STRING = 'string';
 const DESTINATION_CPF = 'destinationCpf';
 const ADDITION = 'addition';
 const SUBTRACTION = 'subtraction';
+const INSUFFICIENT_FUNDS = 'insufficientFunds';
 
 module.exports = {
   TOKEN,
@@ -28,4 +29,5 @@ module.exports = {
   DESTINATION_CPF,
   ADDITION,
   SUBTRACTION,
+  INSUFFICIENT_FUNDS,
 };
