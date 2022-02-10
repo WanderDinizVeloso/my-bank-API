@@ -2,8 +2,8 @@ const { MongoClient } = require('mongodb');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 
 const DB_SERVER = new MongoMemoryServer();
-
-const URL = await DB_SERVER.getUri()
+const URL = await DB_SERVER.getUri();
+const DB_NAME = 'mock';
 
 const OPTIONS = {
   useNewUrlParser: true,
@@ -17,7 +17,7 @@ module.exports = async () => {
     connection = (await MongoClient.connect(
       URL,
       OPTIONS,
-    ))
+    )).db(DB_NAME);
   }
 
   return connection;
