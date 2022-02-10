@@ -46,6 +46,14 @@ const invalidPassword = (type, length) => ({
     - must contain at least a capital letter, a number and a special character (!, $, #, %, _).`,
 });
 
+const invalidValue = (limit) => ({
+  status: BAD_REQUEST,
+  message: `The value must meet the following requirements:
+    - Is required;
+    - Must be a positive number;
+    - Is Limited to ${limit} per transaction`,
+});
+
 module.exports = {
   invalid,
   notFound,
@@ -55,4 +63,5 @@ module.exports = {
   invalidAttribute,
   invalidCpf,
   invalidPassword,
+  invalidValue,
 };
