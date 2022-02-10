@@ -37,6 +37,15 @@ const invalidCpf = () => ({
   + '- Must contain the format xx.xxx.xxx-xx.',
 });
 
+const invalidPassword = (type, length) => ({
+  status: BAD_REQUEST,
+  message: 'The password must meet the following requirements:'
+  + '- Is required'
+  + `- Must be a ${type};`
+  + `- Must contain at least ${length} characters;`
+  + '- must contain at least a capital letter, a number and a special character (!, $, #, %, _).',
+});
+
 module.exports = {
   invalid,
   notFound,
@@ -45,4 +54,5 @@ module.exports = {
   registered,
   invalidAttribute,
   invalidCpf,
+  invalidPassword,
 };
