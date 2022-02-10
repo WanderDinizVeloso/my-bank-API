@@ -9,6 +9,7 @@ const TRANSFER = 'transfer';
 const TRANSFERS = 'transfers';
 const FULL_NAME = 'fullName';
 const STRING = 'string';
+const DESTINATION_CPF = 'destinationCpf';
 
 module.exports = {
   TOKEN,
@@ -22,4 +23,5 @@ module.exports = {
   TRANSFERS,
   FULL_NAME,
   STRING,
+  DESTINATION_CPF,
 };
