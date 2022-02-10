@@ -1,6 +1,6 @@
 const { protectDepositData } = require('../../../../src/services/functions');
 
-describe('protectAccountData tests', () => {
+describe('protectDepositData tests', () => {
   it(`should return:
     "{
       destination: { fullName: "FullNameTest", cpf: "***.456.789-**" },
