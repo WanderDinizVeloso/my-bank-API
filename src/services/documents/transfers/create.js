@@ -1,16 +1,24 @@
-const { TRANSFERS, ACCOUNTS } = require('../../strings');
+const { TRANSFERS, ACCOUNTS, ADDITION, SUBTRACTION } = require('../../strings');
 const { create, searchById } = require('../../../models')(TRANSFERS);
-const { searchByField } = require('../../../models')(ACCOUNTS);
-const { setToTwoDecimalPlaces, protectTransferData } = require('../../functions');
+const { searchByField, searchById: searchAccountById } = require('../../../models')(ACCOUNTS);
+const {
+  setToTwoDecimalPlaces, protectTransferData, updateAccountValue,
+} = require('../../functions');
 
 module.exports = async ({ originData, destinationCpf, value }) => {
-  const account = await searchByField({ cpf: destinationCpf });
+  const { _id: id } = originData;
 
-  if (!account) {
+  const destinationAccount = await searchByField({ cpf: destinationCpf });
+  const originAccount = await searchAccountById(id);
+
+  if (!destinationAccount) {
     return null;
   }
 
-  const { _id, fullName, cpf } = account;
+  const { _id, fullName, cpf } = destinationAccount;
+
+  await updateAccountValue(originAccount, value, SUBTRACTION);
+  await updateAccountValue(destinationAccount, value, ADDITION);
 
   const { insertedId } = await create({
     origin: originData,
