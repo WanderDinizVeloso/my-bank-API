@@ -1,7 +1,10 @@
 const { protectAccountData } = require('../../../../src/services/functions');
 
 describe('protectAccountData tests', () => {
-  it('should return "{ fullName: "FullNameTest", cpf: "***.456.789-**" }" when data is "{ fullName: "FullNameTest", cpf: "123.456.789-00" }"',
+  it(`should return:
+    "{ fullName: "FullNameTest", cpf: "***.456.789-**" }"
+    when data is:
+    "{ fullName: "FullNameTest", cpf: "123.456.789-00" }"`,
     () => {
       const data = {
         fullName: 'FullNameTest',
