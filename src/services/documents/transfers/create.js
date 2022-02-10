@@ -28,5 +28,5 @@ module.exports = async ({ originData, destinationCpf, value }) => {
 
   const createdTransfer = await searchById(insertedId);
 
-  return protectTransferData(originData.cpf, destinationCpf, createdTransfer);
+  return protectTransferData(createdTransfer);
 };
