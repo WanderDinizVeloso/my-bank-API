@@ -4,6 +4,8 @@ const wrapper = require('./wrapper');
 const validateCpf = require('./validations/validateCpf');
 const validateFullName = require('./validations/validateFullName');
 const validatePassword = require('./validations/validatePassword');
+const validateDestinationCpf = require('./validations/validateDestinationCpf');
+const validateValue = require('./validations/validateValue');
 
 module.exports = {
   auth,
@@ -12,4 +14,6 @@ module.exports = {
   validateCpf,
   validateFullName,
   validatePassword,
+  validateDestinationCpf,
+  validateValue,
 };
