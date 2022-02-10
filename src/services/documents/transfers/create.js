@@ -1,4 +1,4 @@
-const { TRANSFERS, ACCOUNTS, ADDITION, SUBTRACTION } = require('../../strings');
+const { TRANSFERS, ACCOUNTS, ADDITION, SUBTRACTION, INSUFFICIENT_FUNDS } = require('../../strings');
 const { create, searchById } = require('../../../models')(TRANSFERS);
 const { searchByField, searchById: searchAccountById } = require('../../../models')(ACCOUNTS);
 const {
@@ -11,9 +11,8 @@ module.exports = async ({ originData, destinationCpf, value }) => {
   const destinationAccount = await searchByField({ cpf: destinationCpf });
   const originAccount = await searchAccountById(id);
 
-  if (!destinationAccount) {
-    return null;
-  }
+  if (!destinationAccount) { return null; }
+  if (originAccount.value < value) { return INSUFFICIENT_FUNDS; }
 
   const { _id, fullName, cpf } = destinationAccount;
 
