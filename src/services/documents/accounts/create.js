@@ -26,5 +26,5 @@ module.exports = async ({ fullName, cpf, password }) => {
 
   const { password: pass, ...newAccountWithoutPassword } = await searchById(insertedId);
 
-  return protectAccountData(cpf, newAccountWithoutPassword);
+  return protectAccountData(newAccountWithoutPassword);
 };
