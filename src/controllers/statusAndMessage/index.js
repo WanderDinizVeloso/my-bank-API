@@ -29,6 +29,14 @@ const invalidAttribute = (param, type, length) => ({
   + `- Must contain at least ${length} characters.`,
 });
 
+const invalidCpf = () => ({
+  status: BAD_REQUEST,
+  message: 'The cpf must meet the following requirements:'
+  + '- Is required;'
+  + '- Must be a string;'
+  + '- Must contain the format xx.xxx.xxx-xx.',
+});
+
 module.exports = {
   invalid,
   notFound,
@@ -36,4 +44,5 @@ module.exports = {
   createdSuccessfully,
   registered,
   invalidAttribute,
+  invalidCpf,
 };
