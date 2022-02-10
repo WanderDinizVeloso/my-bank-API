@@ -23,27 +23,27 @@ const registered = (param) => ({
 
 const invalidAttribute = (param, type, length) => ({
   status: BAD_REQUEST,
-  message: `The ${param} must meet the following requirements:`
-  + '- Is required;'
-  + `- Must be a ${type};`
-  + `- Must contain at least ${length} characters.`,
+  message: `The ${param} must meet the following requirements:
+    - Is required;
+    - Must be a ${type};
+    - Must contain at least ${length} characters.`,
 });
 
 const invalidCpf = (param) => ({
   status: BAD_REQUEST,
-  message: `The ${param} must meet the following requirements:`
-  + '- Is required;'
-  + '- Must be a string;'
-  + '- Must contain the format xx.xxx.xxx-xx.',
+  message: `The ${param} must meet the following requirements:
+    - Is required;
+    - Must be a string;
+    - Must contain the format xx.xxx.xxx-xx.`,
 });
 
 const invalidPassword = (type, length) => ({
   status: BAD_REQUEST,
-  message: 'The password must meet the following requirements:'
-  + '- Is required'
-  + `- Must be a ${type};`
-  + `- Must contain at least ${length} characters;`
-  + '- must contain at least a capital letter, a number and a special character (!, $, #, %, _).',
+  message: `The password must meet the following requirements:
+    - Is required
+    - Must be a ${type};
+    - Must contain at least ${length} characters;
+    - must contain at least a capital letter, a number and a special character (!, $, #, %, _).`,
 });
 
 module.exports = {
