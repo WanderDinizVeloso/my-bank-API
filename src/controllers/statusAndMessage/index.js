@@ -29,9 +29,9 @@ const invalidAttribute = (param, type, length) => ({
   + `- Must contain at least ${length} characters.`,
 });
 
-const invalidCpf = () => ({
+const invalidCpf = (param) => ({
   status: BAD_REQUEST,
-  message: 'The cpf must meet the following requirements:'
+  message: `The ${param} must meet the following requirements:`
   + '- Is required;'
   + '- Must be a string;'
   + '- Must contain the format xx.xxx.xxx-xx.',
