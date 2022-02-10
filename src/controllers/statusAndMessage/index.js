@@ -54,6 +54,11 @@ const invalidValue = (limit) => ({
     - Is Limited to ${limit} per transaction`,
 });
 
+const insufficientFunds = () => ({
+  status: BAD_REQUEST,
+  message: 'Insufficient funds for transfer',
+});
+
 module.exports = {
   invalid,
   notFound,
@@ -64,4 +69,5 @@ module.exports = {
   invalidCpf,
   invalidPassword,
   invalidValue,
+  insufficientFunds,
 };
