@@ -512,3 +512,108 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
       }
     }
     ```
+
+## transfers
+
+ - Descrição: Responsável por efetuar transferência de valores entre contas dos usuários. 
+     
+### transfers create
+<img src="https://img.shields.io/static/v1?label=Metodo&message=POST&color=4DC31A&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Rota&message='/transfers:id'&color=712776&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Autenticacao&message=SIM&color=DFCA11&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Param&message=NAO&color=119CE1&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Body&message=SIM&color=DFCA11&&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Header&message=SIM&color=DFCA11&&style=flat-square&logo="/>
+
+- Descrição: Responsável por criar as transferências de valores entre contas dos usuários.
+
+- Body:
+
+    ```json
+    {
+      "destinationCpf": " ",
+	    "value": 00.00
+    }
+    ```
+
+- Retorno:
+
+    ```json
+    {
+      "message": "'transfer' created successfully.",
+      "createdTransfer": {
+        "_id": " ",
+        "origin": {
+          "_id": " ",
+          "fullName": " ",
+          "cpf": " "
+        },
+        "destination": {
+          "_id": " ",
+          "fullName": " ",
+          "cpf": " "
+        },
+        "value": " ",
+        "date": " "
+      }
+    }
+    ```
+    >⚠️ ATENÇÃO ⚠️
+    > - Os campos `"_id"` e `"date"` são gerados automaticamente pelo sistema;
+    >
+    > - No returno, para proteção dos dados, o campo cpf será mascarado com `*`.
+    > Exemplo: cpf: `***.000.000-**`.
+    >
+    > - Para efetuar a transferência é necessário estar logado.
+    >   Vide: [authentication](#authentication)
+ 
+- Campos obrigatórios:
+
+  - `destinationCpf`:
+
+    - Requisitos do campo:
+
+      - `Obrigatório`;
+      - `Deve ser uma string`;
+      - `Deve conter o formato xx.xxx.xxx-xx.`;
+
+    - Erro retornado:
+
+    ```json
+    {
+      "error": {
+      "message": "The destinationCpf must meet the following requirements:"
+        "- Is required;"
+        "- Must be a string;"
+        "- Must contain the format xx.xxx.xxx-xx."
+      }
+    }
+    ```
+
+      - `Deve existir uma conta que contenha o cpf correspondente ao destinationCpf`;
+      
+    - Erro retornado:
+
+    ```json
+    {
+      "error": {
+        "message": "'account' not found."
+      }
+    }
+    ```
+
+  - `value`:
+
+    - Requisitos do campo:
+
+      - `Obrigatório`;
+      - `Deve ser um número positivo`;
+      - `Para maior segurança, cada transferência está limitado ao valor de 2000.00`;
+
+    - Erro retornado:
+
+    ```json
+    {
+      "error": {
+        "message": "The value must meet the following requirements:"
+          "- Is required;"
+          "- Must be a positive number;"
+          "- Is Limited to 2000 per transaction"
+      }
+    }
+    ```
