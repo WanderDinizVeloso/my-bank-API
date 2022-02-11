@@ -682,3 +682,37 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
   > - Em todas as requisições que contenha <img src="https://img.shields.io/static/v1?label=Autenticacao&message=SIM&color=DFCA11&style=flat-square&logo="/> será necessário a inclusão do token.
 
 ---
+
+# Contribuição
+
+Bora entrar para esta lista? `;)` [AQUI](#pré-requisitos) 
+
+---
+
+# Agradecimentos
+
+Agradeço:
+ - À minha família por me apoiar nos estudos em minha transição de carreira;
+ - À [Trybe](https://www.betrybe.com) por me dar a oportunidade de aprender uma nova carreira, com seu Curso de Desenvolvimento WEB Full-Stack, na modalidade [MSC](https://www.betrybe.com/msc-modelo-de-sucesso-compartilhado#investimento-como-functiona-mobile-section).
+ - Toda a equipe Trybe, em especial:
+    - [Jadezita](https://www.linkedin.com/in/jade--vieira/) e [Rê](https://www.linkedin.com/in/renata-nazar%C3%A9-magalh%C3%A3es/), pelo carinho e apoio em [softs skills](https://www.youtube.com/watch?v=yA3sc5mnctg&t=1s);
+    - [Pedro](https://www.linkedin.com/in/phramos07/), [Nato](https://www.linkedin.com/in/renato-alvares/), [Ricci](https://www.linkedin.com/in/henriquericci/) e [Rafa Guimarães](https://www.linkedin.com/in/rafaelmguimaraes/), pelo belíssimo apoio e ensinamentos em back-end;
+    - [Daniel](https://www.linkedin.com/in/marciodanielll/) e [Rafa Medeiros](https://www.linkedin.com/in/rafael-medeiros-gomes/), monitores Summer de Instrução, pelo apoio, principalmente na introdução de novos conteúdos.     
+
+---
+
+# Autor
+
+ <img src="https://avatars.githubusercontent.com/u/82230642?v=4" width="100px;" alt="minha foto"/>
+ <br />
+  Wander Diniz Veloso
+<br />
+  Estudante de Desenvolvimento WEB e a cada dia mais apaixonado por tecnologia!
+
+Entre em contato!
+
+<section align="center"> 
+  <a href="https://www.linkedin.com/in/wander-diniz-veloso" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+</section>
+
+---
