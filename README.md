@@ -415,6 +415,57 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
     > - No returno, para proteção dos dados, o campo cpf será mascarado com `*`.
     > Exemplo: cpf: `***.000.000-**`.
 
+## login
+<img src="https://img.shields.io/static/v1?label=Metodo&message=POST&color=4DC31A&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Rota&message='/login'&color=712776&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Autenticacao&message=NAO&color=119CE1&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Param&message=NAO&color=119CE1&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Body&message=SIM&color=DFCA11&&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Header&message=NAO&color=119CE1&style=flat-square&logo="/>
+
+- Descrição: Responsável por dar autorização para acesso ao sistema pelo usuário da conta. 
+
+- body:
+
+    ```json
+    {
+      "cpf": " ",
+      "password": " ",
+    }
+    ```
+
+- Retorno:
+
+    ```json
+    {
+      "token": " "
+    }
+    ```
+
+- Campos obrigatórios:
+
+  - `cpf`:
+
+    - Requisitos do campo:
+
+      - `Obrigatório`;
+      - `Deve ser uma string`;
+      - `Deve conter o formato xx.xxx.xxx-xx.`;    
+
+  - `password`:
+
+    - Requisitos do campo:
+
+      - `Obrigatório`;
+      - `Deve ser uma string`;
+      - `Deve conter no mínimo 10 caracteres`;
+      - `Deve conter ao menos uma letra maiúscula, um número e um caractere especial (!, $, #, %, _).`.
+
+  - Erro retornado ao desobedecer os requisitos de cpf ou password:
+
+    ```json
+    {
+      "error": {
+        "message": "The invalid 'cpf or password' field."
+      }
+    }
+    ```
+
 
 ## deposits
 
