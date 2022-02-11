@@ -330,16 +330,16 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
 
     - Erro retornado:
 
-          ```json
-          {
-            "error": {
-            "message": "The fullName must meet the following requirements:
-              - Is required;
-              - Must be a string;
-              - Must contain at least 6 characters."
-            }
-          }
-          ```
+    ```json
+    {
+      "error": {
+      "message": "The fullName must meet the following requirements:
+        - Is required;
+        - Must be a string;
+        - Must contain at least 6 characters."
+      }
+    }
+    ```
 
   - `cpf`:
 
@@ -351,16 +351,16 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
 
     - Erro retornado:
 
-          ```json
-          {
-            "error": {
-            "message": "The cpf must meet the following requirements:
-              - Is required;
-              - Must be a string;
-              - Must contain the format xx.xxx.xxx-xx."
-            }
-          }
-          ```
+    ```json
+    {
+      "error": {
+      "message": "The cpf must meet the following requirements:
+        - Is required;
+        - Must be a string;
+        - Must contain the format xx.xxx.xxx-xx."
+      }
+    }
+    ```
 
   - `password`:
 
@@ -376,19 +376,19 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
       - `Deve conter no mínimo 10 caracteres`;
       - `Deve conter ao menos uma letra maiúscula, um número e um caractere especial (!, $, #, %, _).`.
 
-        - Erro retornado:
+    - Erro retornado:
 
-              ```json
-              {
-                "error": {
-                "message": "The password must meet the following requirements:
-                  - Is required
-                  - Must be a string;
-                  - Must contain at least 10 characters;
-                  - must contain at least a capital letter, a number and a special character (!, $, #, %, _)."
-                }
-              }
-              ```
+    ```json
+    {
+      "error": {
+      "message": "The password must meet the following requirements:
+        - Is required
+        - Must be a string;
+        - Must contain at least 10 characters;
+        - must contain at least a capital letter, a number and a special character (!, $, #, %, _)."
+      }
+    }
+    ```
 
 ### accounts searchById
 <img src="https://img.shields.io/static/v1?label=Metodo&message=GET&color=9002FF&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Rota&message='/accounts'&color=712776&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Autenticacao&message=SIM&color=DFCA11&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Param&message=NAO&color=119CE1&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Body&message=NAO&color=119CE1&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Header&message=SIM&color=DFCA11&&style=flat-square&logo="/>
