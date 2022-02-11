@@ -333,10 +333,10 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
     ```json
     {
       "error": {
-      "message": "The fullName must meet the following requirements:
-        - Is required;
-        - Must be a string;
-        - Must contain at least 6 characters."
+      "message": "The fullName must meet the following requirements:"
+        "- Is required;"
+        "- Must be a string;"
+        "- Must contain at least 6 characters."
       }
     }
     ```
@@ -354,10 +354,10 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
     ```json
     {
       "error": {
-      "message": "The cpf must meet the following requirements:
-        - Is required;
-        - Must be a string;
-        - Must contain the format xx.xxx.xxx-xx."
+      "message": "The cpf must meet the following requirements:"
+        "- Is required;"
+        "- Must be a string;"
+        "- Must contain the format xx.xxx.xxx-xx."
       }
     }
     ```
@@ -381,11 +381,11 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
     ```json
     {
       "error": {
-      "message": "The password must meet the following requirements:
-        - Is required
-        - Must be a string;
-        - Must contain at least 10 characters;
-        - must contain at least a capital letter, a number and a special character (!, $, #, %, _)."
+      "message": "The password must meet the following requirements:"
+        "- Is required"
+        "- Must be a string;"
+        "- Must contain at least 10 characters;"
+        "- must contain at least a capital letter, a number and a special character (!, $, #, %, _)."
       }
     }
     ```
