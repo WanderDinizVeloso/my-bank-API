@@ -617,3 +617,17 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
       }
     }
     ```
+
+---
+
+## authentication
+
+ - Para efetuar a autenticação, é necessário seguir os seguintes passos:
+    - Criar uma conta. Vide [acconts create](#accounts-create);
+    - Efetuar o login com dos dados do usuário criado. Em caso de sucesso você receberá um `token`. Vide [login](#login);
+    - Incluir no Header, o campo `authorization` (exatamente assim, tudo com letras minúsculas) o `token` recebido ao efetuar o login. 
+  
+  >⚠️ ATENÇÃO ⚠️
+  > - Em todas as requisições que contenha <img src="https://img.shields.io/static/v1?label=Autenticacao&message=SIM&color=DFCA11&style=flat-square&logo="/> será necessário a inclusão do token.
+
+---
