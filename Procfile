@@ -1,1 +1,1 @@
-web: node start
+web: node ./src/api/server.js
