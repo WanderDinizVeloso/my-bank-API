@@ -272,3 +272,145 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
 // Fonte utilizada na criação do `Pré-requisitos`: [Trybe](https://www.betrybe.com)
 
 ---
+
+# Orientações detalhadas de como utilizar
+
+## accounts
+
+ - Descrição: Responsável pela criação e leitura das contas de usuários da API. 
+
+>⚠️ ATENÇÃO ⚠️
+> - Para a execução de `searchId` é necessário efetuar login pelo /login
+>
+>    Vide: [authentication](#authentication).
+     
+### accounts create
+<img src="https://img.shields.io/static/v1?label=Metodo&message=POST&color=4DC31A&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Rota&message='/accounts'&color=712776&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Autenticacao&message=NAO&color=119CE1&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Param&message=NAO&color=119CE1&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Body&message=SIM&color=DFCA11&&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Header&message=NAO&color=119CE1&style=flat-square&logo="/>
+
+- Descrição: Responsável pela criação de contas dos usuários.
+
+- Body:
+
+    ```json
+    {
+      "fullName": " ",
+	    "cpf": " ",
+	    "password": " "
+    }
+    ```
+
+- Retorno:
+
+    ```json
+    {
+      "message": "'account' created successfully.",
+      "createdAccount": {
+        "_id": " ",
+        "fullName": " ",
+        "cpf": " ",
+        "value": " "
+      }
+    }
+    ```
+    >⚠️ ATENÇÃO ⚠️
+    > - Os campos `"_id"` e `"value"` são gerados automaticamente pelo sistema;
+    >
+    > - No returno, para proteção dos dados, o campo cpf será mascarado com '*'.
+    > Exemplo: cpf: "***.000.000-**".
+ 
+- Campos obrigatórios:
+
+  - `fullName`:
+
+    - Requisitos do campo:
+
+      - `Obrigatório`;
+      - `Deve ser uma string`;
+      - `Deve conter no mínimo 6 caracteres`;
+
+    - Erro retornado:
+
+          ```json
+          {
+            "error": {
+            "message": "The fullName must meet the following requirements:
+              - Is required;
+              - Must be a string;
+              - Must contain at least 6 characters."
+            }
+          }
+          ```
+
+  - `cpf`:
+
+    - Requisitos do campo:
+
+      - `Obrigatório`;
+      - `Deve ser uma string`;
+      - `Deve conter o formato xx.xxx.xxx-xx.`;
+
+    - Erro retornado:
+
+          ```json
+          {
+            "error": {
+            "message": "The cpf must meet the following requirements:
+              - Is required;
+              - Must be a string;
+              - Must contain the format xx.xxx.xxx-xx."
+            }
+          }
+          ```
+
+  - `password`:
+
+  >⚠️ ATENÇÃO ⚠️
+  > - Visando maior segurança as senhas:
+  > - São encriptadas antes de armazenadas no banco de dados, através do [bcrypt](https://www.npmjs.com/package/bcrypt);
+  > - Não são retornadas em no `create` e `searchId`.
+
+    - Requisitos do campo:
+
+      - `Obrigatório`;
+      - `Deve ser uma string`;
+      - `Deve conter no mínimo 10 caracteres`;
+      - `Deve conter ao menos uma letra maiúscula, um número e um caractere especial (!, $, #, %, _).`.
+
+        - Erro retornado:
+
+              ```json
+              {
+                "error": {
+                "message": "The password must meet the following requirements:
+                  - Is required
+                  - Must be a string;
+                  - Must contain at least 10 characters;
+                  - must contain at least a capital letter, a number and a special character (!, $, #, %, _)."
+                }
+              }
+              ```
+
+### accounts searchById
+<img src="https://img.shields.io/static/v1?label=Metodo&message=GET&color=9002FF&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Rota&message='/accounts'&color=712776&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Autenticacao&message=SIM&color=DFCA11&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Param&message=NAO&color=119CE1&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Body&message=NAO&color=119CE1&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Header&message=SIM&color=DFCA11&&style=flat-square&logo="/>
+
+- Descrição: Responsável pela leitura dos dados da conta do usuário. 
+
+- Retorno:
+
+    ```json
+    {
+      "account": {
+        "_id": " ",
+        "fullName": " ",
+        "cpf": " ",
+        "value": " "
+      }
+    }
+    ```
+    >⚠️ ATENÇÃO ⚠️
+    > - Para a execução de `searchId` é necessário efetuar login pelo /login>
+    > Vide: [authentication](#authentication).
+    >
+    > - Visando maior segurança, o id é acessado através do token encaminhado no authentication, não sendo assim possível o acesso dos dados por outro usuário.
+    > - No returno, para proteção dos dados, o campo cpf será mascarado com '*'.
+    > Exemplo: cpf: "***.000.000-**".
