@@ -315,8 +315,8 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
     >⚠️ ATENÇÃO ⚠️
     > - Os campos `"_id"` e `"value"` são gerados automaticamente pelo sistema;
     >
-    > - No returno, para proteção dos dados, o campo cpf será mascarado com '*'.
-    > Exemplo: cpf: "***.000.000-**".
+    > - No returno, para proteção dos dados, o campo cpf será mascarado com `*`.
+    > Exemplo: cpf: `***.000.000-**`.
  
 - Campos obrigatórios:
 
@@ -412,5 +412,5 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
     > Vide: [authentication](#authentication).
     >
     > - Visando maior segurança, o id é acessado através do token encaminhado no authentication, não sendo assim possível o acesso dos dados por outro usuário.
-    > - No returno, para proteção dos dados, o campo cpf será mascarado com '*'.
-    > Exemplo: cpf: "***.000.000-**".
+    > - No returno, para proteção dos dados, o campo cpf será mascarado com `*`.
+    > Exemplo: cpf: `***.000.000-**`.
