@@ -414,3 +414,101 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
     > - Visando maior segurança, o id é acessado através do token encaminhado no authentication, não sendo assim possível o acesso dos dados por outro usuário.
     > - No returno, para proteção dos dados, o campo cpf será mascarado com `*`.
     > Exemplo: cpf: `***.000.000-**`.
+
+
+## deposits
+
+ - Descrição: Responsável por efetuar a entrada de valores nas contas de usuários da API. 
+     
+### deposits create
+<img src="https://img.shields.io/static/v1?label=Metodo&message=POST&color=4DC31A&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Rota&message='/deposits'&color=712776&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Autenticacao&message=NAO&color=119CE1&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Param&message=NAO&color=119CE1&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Body&message=SIM&color=DFCA11&&style=flat-square&logo="/> <img src="https://img.shields.io/static/v1?label=Header&message=NAO&color=119CE1&style=flat-square&logo="/>
+
+- Descrição: Responsável por efetuar a entrada de valores, podendo qualquer usuário, cadastrado ou não efetuar o deposito em uma conta desejada.
+
+- Body:
+
+    ```json
+    {
+      "destinationCpf": " ",
+	    "value": 00.00
+    }
+    ```
+
+- Retorno:
+
+    ```json
+    {
+      "message": "'deposit' created successfully.",
+      "createdDeposit": {
+        "_id": " ",
+        "destination": {
+          "_id": " ",
+          "fullName": " ",
+          "cpf": " "
+        },
+      "value": " ",
+      "date": " "
+      }
+    }
+    ```
+    >⚠️ ATENÇÃO ⚠️
+    > - Os campos `"_id"` e `"date"` são gerados automaticamente pelo sistema;
+    >
+    > - No returno, para proteção dos dados, o campo cpf será mascarado com `*`.
+    > Exemplo: cpf: `***.000.000-**`.
+ 
+- Campos obrigatórios:
+
+  - `destinationCpf`:
+
+    - Requisitos do campo:
+
+      - `Obrigatório`;
+      - `Deve ser uma string`;
+      - `Deve conter o formato xx.xxx.xxx-xx.`;
+
+    - Erro retornado:
+
+    ```json
+    {
+      "error": {
+      "message": "The destinationCpf must meet the following requirements:"
+        "- Is required;"
+        "- Must be a string;"
+        "- Must contain the format xx.xxx.xxx-xx."
+      }
+    }
+    ```
+
+      - `Deve existir uma conta que contenha o cpf correspondente ao destinationCpf`;
+      
+    - Erro retornado:
+
+    ```json
+    {
+      "error": {
+        "message": "'account' not found."
+      }
+    }
+    ```
+
+  - `value`:
+
+    - Requisitos do campo:
+
+      - `Obrigatório`;
+      - `Deve ser um número positivo`;
+      - `Para maior segurança, cada depósito está limitado ao valor de 2000.00`;
+
+    - Erro retornado:
+
+    ```json
+    {
+      "error": {
+        "message": "The value must meet the following requirements:"
+          "- Is required;"
+          "- Must be a positive number;"
+          "- Is Limited to 2000 per transaction"
+      }
+    }
+    ```
