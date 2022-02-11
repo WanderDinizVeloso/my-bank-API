@@ -25,6 +25,7 @@ Projeto criado visando colocar em prática os conhecimentos adquiridos em Back-e
 - [Pré-requisitos](#pré-requisitos)
   - [Ferramentas necessárias](#ferramentas-necessárias)
   - [Rodando no servidor local](#rodando-no-servidor-local)
+  - [Rodando no servidor heroku e Atlas](#rodando-no-servidor-heroku-e-Atlas)
   - [Quer contribuir com o projeto?](#quer-contribuir-com-o-projeto)
 - [Orientações detalhadas de como utilizar](#orientações-detalhadas-de-como-utilizar)
   - [accounts](#accounts)
@@ -246,6 +247,16 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
     ```
 
  - Faça as requisições pelo [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/) ou outro de sua preferência;
+
+## Rodando no servidor heroku e Atlas
+
+  Não quer rodar localmente? Você pode acessar o projeto hospedado no heroku!`:)`
+
+  O deploy da API foi hospedada no heroku e o banco mongoDB hospedado no Atlas.
+
+  - link: [https://my-bank-deploy.herokuapp.com](https://my-bank-deploy.herokuapp.com)
+
+  - Faça as requisições pelo [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/) ou outro de sua preferência;
 
 ## Quer contribuir com o projeto?
 
