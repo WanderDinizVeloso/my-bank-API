@@ -39,3 +39,41 @@ Projeto criado visando colocar em prática os conhecimentos adquiridos em Back-e
 - [Contribuição](#contribuição)
 - [Agradecimentos](#agradecimentos)
 - [Autor](#autor)
+
+---
+
+# Status
+
+Este projeto será utilizado em um teste técnico, mas pretendo continuar sua atualização, visando aprimoramento de suas funcionalidades além de melhorar sua performance e escalabilidade.
+
+---
+
+# Licença
+
+Este projeto esta sobe a licença [MIT](https://pt.wikipedia.org/wiki/Licen%C3%A7a_MIT).
+
+---
+
+# Habilidades desenvolvidas
+
+- Entender os conceitos básicos de como o JavaScript funciona;
+- Realizar operações assíncronas utilizando async/await;
+- Realizar chamadas de funções de forma consciente;
+- Detectar e solucionar problemas no código de forma mais objetiva;
+- Entender o que é o HTTP, o que é uma API e o que os dois têm a ver com o Express;
+- Escrever APIs utilizando Node e Express;
+- Entender a estrutura de uma aplicação Express e como organizar seu código;
+- Criar rotas e aplicar middlewares;
+- Entender o funcionamento das camadas Model, Service, Controller;
+- Estruturar uma aplicação em camadas;
+- Delegar responsabilidades específicas para cada camada;
+- Delegar responsabilidades específicas para cada parte do seu app;
+- Melhorar manutenibilidade e reusabilidade do seu código;
+- Entender e aplicar os padrões REST;
+- Escrever assinaturas para APIs intuitivas e facilmente entendíveis;
+- Autenticar rotas do Express, usando o token JWT;
+- Gerar tokens a partir de informações como login e senha;
+- Entender como utilizar o bcrypt para criptografar senhas de usuários;
+- Entender e aplicar os conceitos de markdown na criação de um README estruturado.
+
+---
